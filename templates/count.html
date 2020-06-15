@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .header{
+            color:red;
+            text-transform:uppercase;
+           
+
+        }
+        form {
+            text-align:center;
+        }
+        body{
+            background:gainsboro;
+
+        }
+       
+        .nav {
+            display:flex;
+            justify-content: space-evenly;
+            align-items:center;
+        }
+        .nav ul li  {
+            text-decoration: none;
+            color:red;
+            list-style-type: none;
+            margin-right:15px;
+        }
+        .nav ul li a {
+            text-decoration:none;
+            color:red;
+            text-transform:uppercase;
+
+        }
+        .nav ul li a:hover {
+            border-bottom:5px solid black;
+
+        }
+        ul {
+            display:flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="nav">
+           <h1 class="header"> Word Counter</h1>
+           <ul>
+               <li>
+                   <a href="{% url 'home' %}">HOME</a>
+               </li>
+               <li>
+                <a href ="{% url 'home' %}"> Start Over</a>
+               </li>
+           </ul>
+        </div>
+           
+       </div>
+    <h1> There are {{count}}&nbsp; words in you statement</h1>
+
+<h2> Your Text </h2>
+{{fulltext}}
+<h2>Word Count:</h2>
+{% for word, countTotal in sortedWords %}
+
+<quote> {{word}} - {{countTotal}} </quote>
+
+{% endfor %}
+</div>
+</body>
+</html>
